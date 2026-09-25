@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 A single-page personal portfolio for Mohammad Sarya Tulimat, served by GitHub Pages from this repo (`Mohammad-Sarya-Tulimat.github.io`, `main` branch). The page content is written by hand from the resume.
 
 - `index.html` is the whole site: inline CSS, inline SVG diagrams, and a small inline script. There's no build step, package manager, framework, linter, or test suite.
-- `resume.pdf` is the **source of truth** for the content. When the resume changes, update `index.html` to match. Don't invent claims, metrics, dates, or links that aren't in the resume or already on the page.
+- `resume.pdf` is the **source of truth** for the content, and the hero's "Resume" chip links to it directly. When the resume changes, update `index.html` to match. Don't invent claims, metrics, dates, or links that aren't in the resume or already on the page.
 - `ICPCId.pdf` and `cert.jpg` are supporting documents (ICPC record, certificate). The page doesn't reference them right now.
 
 ## Previewing

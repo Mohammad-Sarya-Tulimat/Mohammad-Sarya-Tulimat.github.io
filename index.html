@@ -1,7 +1,17 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mohammad Sarya Tulimat</title>
+<title>Mohammad Sarya Tulimat · Backend Software Engineer</title>
+<meta name="description" content="Backend Software Engineer (.NET) building event-driven pipelines, queue-based processing, distributed integrations and real-time monitoring. Currently at TabTabGo.">
+<link rel="canonical" href="https://mohammad-sarya-tulimat.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Mohammad Sarya Tulimat · Backend Software Engineer">
+<meta property="og:description" content="Event-driven pipelines, queue-based processing, distributed integrations and legacy .NET modernization.">
+<meta property="og:url" content="https://mohammad-sarya-tulimat.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#F3F5F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F171C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231D6E7E'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'%3EST%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -148,8 +158,12 @@ ul.bul li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;heig
 .skills ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px}
 .skills li{padding-bottom:6px;border-bottom:1px dashed var(--rule)}
 .skills li em{font:400 11px/1 var(--mono);font-style:normal;color:var(--ink-3);margin-left:4px}
-.spoken{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--rule);font-size:15px}
-.spoken span{font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-right:10px}
+.spoken{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:28px 0 0;padding-top:18px;border-top:1px solid var(--rule)}
+.spoken h4{font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin:0}
+.spoken ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.lang{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);font:500 15px/1 var(--body)}
+.lang abbr{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:500 11px/1 var(--mono);letter-spacing:.04em;text-decoration:none}
+.lang abbr[lang="ar"]{font:600 16px/1 system-ui,sans-serif;padding-bottom:3px}
 
 /* education */
 .edu{display:grid;gap:22px}
@@ -168,7 +182,15 @@ ul.bul li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;heig
 .placing p{margin:0;font-size:14px;color:var(--ink-2)}
 .placing .team{font-family:var(--mono);font-size:13px;color:var(--ink)}
 .icpc-foot{margin:16px 0 0;font-size:14px;color:var(--ink-2)}
-.award{margin-top:6px;padding-top:22px;border-top:1px dashed var(--rule)}
+
+@media print{
+  body{font-size:12px}
+  .wrap{padding:0;max-width:none}
+  .pipe .msg{display:none}
+  h2{position:static}
+  .proj,.role,.placing,.skill-group,figure{break-inside:avoid}
+  a{text-decoration:none}
+}
 
 footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font:400 12px/1.5 var(--mono);color:var(--ink-3)}
 </style>
@@ -179,12 +201,13 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
     <div>
       <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Backend Software Engineer · .NET · Homs, Syria</span></div>
       <h1>Mohammad <span>Sarya</span> Tulimat</h1>
-      <p class="lede">I build backend systems that stay fast and correct under load — event-driven pipelines, queue-based processing, distributed integrations, and the modernization of legacy .NET codebases into something teams can keep extending.</p>
+      <p class="lede">I build backend systems that stay fast and correct under load — event-driven pipelines, queue-based processing, distributed integrations, real-time monitoring, and the modernization of legacy .NET codebases into something teams can keep extending.</p>
       <div class="contact">
         <button class="chip" type="button" data-copy="sarya.tulimat@outlook.com" id="copy-email"><small>email</small>sarya.tulimat@outlook.com</button>
         <button class="chip" type="button" data-copy="+963952713953" id="copy-phone"><small>phone</small>+963 952 713 953</button>
         <a class="chip" href="https://github.com/Mohammad-Sarya-Tulimat" target="_blank" rel="noopener"><small>github</small>Mohammad-Sarya-Tulimat ↗</a>
-        <a class="chip chip-cta" href="https://drive.google.com/drive/folders/1rtjdeb4dg0DrLAJBgx9SjVcX5XQKwzn6?usp=sharing" target="_blank" rel="noopener"><small>drive</small>Resume &amp; certificates ↗</a>
+        <a class="chip chip-cta" href="resume.pdf" target="_blank" rel="noopener"><small>pdf</small>Resume ↗</a>
+        <a class="chip" href="https://drive.google.com/drive/folders/1rtjdeb4dg0DrLAJBgx9SjVcX5XQKwzn6?usp=sharing" target="_blank" rel="noopener"><small>drive</small>Resume &amp; certificates ↗</a>
       </div>
     </div>
 
@@ -220,7 +243,7 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
         <ul class="bul">
           <li>Enhanced and scaled integrations with Cisco Unified Communications Manager (CUCM), improving communication workflows and stability.</li>
           <li>Reduced execution times of API endpoints and asynchronous jobs by 60–80% through request-handling and workflow optimization.</li>
-          <li>Architected a WireGuard-based VPN across hybrid infrastructure (MikroTik, OpenWRT, cloud) for secure, low-latency remote access.</li>
+          <li>Architected and deployed a WireGuard-based VPN across hybrid infrastructure (MikroTik, OpenWRT, cloud) for secure, low-latency remote access.</li>
           <li>Built a full-stack school management platform with centralized data and real-time monitoring of lab machines.</li>
         </ul>
       </article>
@@ -320,7 +343,7 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
           <li>Contributed heavily to migrating the legacy .NET Framework codebase to .NET 8, improving performance and maintainability.</li>
           <li>Automated service workflows for WiFi devices, VoIP and third-party streaming orders.</li>
           <li>Integrated real-time network monitoring with SNMP and GenieACS across thousands of endpoints, for proactive fault detection.</li>
-          <li>Designed a campaigns and promotions module with dynamic discount strategies.</li>
+          <li>Designed a campaigns and promotions module with dynamic discount strategies to boost customer engagement.</li>
         </ul>
         <div class="tags"><span class="tag">.NET 8</span><span class="tag">SNMP</span><span class="tag">GenieACS</span><span class="tag">Legacy migration</span></div>
       </article>
@@ -331,7 +354,7 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
           <div class="proj-text">
           <p class="what">ASP.NET API that automates VPN configuration and device provisioning.</p>
           <ul class="bul">
-            <li>Provisioning across hundreds of distributed endpoints.</li>
+            <li>Led the design and implementation, with provisioning across hundreds of distributed endpoints.</li>
             <li>On-prem MikroTik/OpenWRT routers orchestrated with cloud servers, including dynamic VM creation.</li>
             <li>WireGuard server/client setup logic for encrypted tunnels between nodes.</li>
             <li>Port forwarding and access-control modules — ~70% more admin efficiency.</li>
@@ -391,7 +414,7 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
         <div class="proj-top"><h3>Nimas CUCM Integration</h3><span class="org"><a href="https://nimastech.com/" target="_blank" rel="noopener">Nimas Technology</a> · Aug 2022 – Nov 2023</span></div>
         <p class="what">Billing, analytics and monitoring on top of Cisco Unified Communications Manager.</p>
         <ul class="bul">
-          <li>Migrated the legacy .NET Framework system to .NET 6.</li>
+          <li>Modernized the legacy .NET Framework system by migrating it to .NET 6, improving reliability and maintainability.</li>
           <li>Query-driven dashboard backend: users write custom function expressions that are parsed, executed and rendered as live statistical widgets.</li>
           <li>High-throughput CDR billing and call analytics over thousands of call, meeting and forwarding records a day, with call relationships drawn as graphs.</li>
           <li>Log ingestion service capturing CUCM UDP logs, queuing over AMQP and persisting to the database — 90% better retention, less packet loss.</li>
@@ -410,11 +433,11 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
     <div class="skills">
       <div class="skill-group">
         <h4>Languages &amp; frameworks</h4>
-        <ul><li>C# · ASP.NET Core</li><li>.NET Framework → .NET 6 / 8</li><li>.NET WinForms</li><li>Liquid templates</li><li>Angular <em>basics</em></li></ul>
+        <ul><li>C# · ASP.NET Core</li><li>.NET <em>8 · 6 · Framework</em></li><li>.NET WinForms</li><li>Liquid templates</li><li>Angular <em>basics</em></li></ul>
       </div>
       <div class="skill-group">
         <h4>Architecture &amp; design</h4>
-        <ul><li>Event-driven architecture</li><li>Microservices &amp; monoliths</li><li>RESTful API design</li><li>SOLID &amp; design patterns</li><li>Multi-tenant integrations</li></ul>
+        <ul><li>Event-driven architecture</li><li>Microservices</li><li>Monoliths</li><li>RESTful API design</li><li>SOLID &amp; design patterns</li><li>Multi-tenant integrations</li></ul>
       </div>
       <div class="skill-group">
         <h4>Messaging &amp; reliability</h4>
@@ -430,10 +453,16 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
       </div>
       <div class="skill-group">
         <h4>Ways of working</h4>
-        <ul><li>CI/CD</li><li>Agile</li><li>Legacy modernization</li><li>Cross-functional teams</li><li>Problem solving · ICPC</li></ul>
+        <ul><li>CI/CD</li><li>Agile</li><li>Legacy modernization <em>→ .NET 6 / 8</em></li><li>Cross-functional teams</li><li>Problem solving · ICPC</li></ul>
       </div>
     </div>
-    <p class="spoken"><span>Spoken languages</span> Arabic · English</p>
+    <div class="spoken">
+      <h4>Spoken languages</h4>
+      <ul>
+        <li class="lang"><abbr title="Arabic" lang="ar">ع</abbr>Arabic</li>
+        <li class="lang"><abbr title="English">EN</abbr>English</li>
+      </ul>
+    </div>
     </div>
   </section>
 
