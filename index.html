@@ -1,0 +1,512 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohammad Sarya Tulimat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F5F4;
+  --surface:#FFFFFF;
+  --ink:#13212A;
+  --ink-2:#4A5A63;
+  --ink-3:#7A8990;
+  --rule:#D9E0DE;
+  --accent:#1D6E7E;
+  --accent-soft:#E0EEF0;
+  --signal:#B7741A;
+  --signal-soft:#F6EAD6;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0F171C; --surface:#152028; --ink:#E6ECEB; --ink-2:#A7B5B9; --ink-3:#72838A;
+    --rule:#243440; --accent:#5DB6C6; --accent-soft:#17323A; --signal:#E3A54E; --signal-soft:#33281A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0F171C; --surface:#152028; --ink:#E6ECEB; --ink-2:#A7B5B9; --ink-3:#72838A;
+  --rule:#243440; --accent:#5DB6C6; --accent-soft:#17323A; --signal:#E3A54E; --signal-soft:#33281A;
+}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:24px;padding-block:48px 72px}
+@media (max-width:600px){.wrap{padding-inline:16px;padding-block:28px 56px}}
+
+/* ---------- hero ---------- */
+.hero{padding-bottom:40px;border-bottom:1px solid var(--rule)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:12px;align-items:center;line-height:1.5}
+.eyebrow .dot{flex:none}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+h1{font:800 clamp(40px,7vw,76px)/.95 var(--display);letter-spacing:-.03em;margin:18px 0 18px;text-wrap:balance}
+h1 span{color:var(--accent)}
+.lede{font-size:18px;color:var(--ink-2);max-width:56ch;margin:0}
+.contact{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:26px}
+.chip{display:inline-flex;align-items:center;gap:8px;font:500 13px/1 var(--mono);padding:9px 12px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;cursor:pointer;user-select:text}
+.chip:hover{border-color:var(--accent)}
+.chip small{font:inherit;color:var(--ink-3)}
+.chip-cta{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.chip-cta small{color:var(--accent);opacity:.75}
+.chip.copied{border-color:var(--accent);color:var(--accent)}
+
+/* pipeline diagram */
+.pipe{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 14px}
+.pipe-head{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.pipe svg{width:100%;height:auto;display:block}
+.pipe text{font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.pipe .node{fill:var(--ground);stroke:var(--rule)}
+.pipe .node.hot{fill:var(--accent-soft);stroke:var(--accent)}
+.pipe .node.dlq{fill:var(--signal-soft);stroke:var(--signal)}
+.pipe .lbl{fill:var(--ink);font-weight:500}
+.pipe .edge{stroke:var(--ink-3);stroke-width:1.2;fill:none}
+.pipe .edge.retry{stroke:var(--signal);stroke-dasharray:3 3}
+.pipe .msg{fill:var(--accent)}
+.pipe .node.ext{fill:var(--surface);stroke:var(--ink-3)}
+.pipe .sub{font-size:10px;fill:var(--ink-3)}
+.pipe .q{font-size:11px;fill:var(--accent);font-weight:500}
+.pipe .warn{font-size:11px;fill:var(--signal)}
+.pipe .ah{fill:var(--ink-3)}
+.pipe .ahr{fill:var(--signal)}
+.pipe .ahc{fill:var(--accent)}
+.pipe .edge.cfg{stroke:var(--accent);stroke-dasharray:4 3}
+.pipe .tun{stroke:var(--accent);stroke-width:2;fill:none;opacity:.55}
+.pipe .grp{fill:none;stroke:var(--ink-3);stroke-dasharray:4 3;opacity:.7}
+.pipe .cap{font-size:9.5px;fill:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+.pipe .note{font-size:10px;fill:var(--ink-2)}
+.pipe-foot{font:400 12px/1.5 var(--mono);color:var(--ink-3);margin-top:8px}
+@media (prefers-reduced-motion: reduce){.pipe .msg{display:none}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;padding:28px 0 20px}
+.scale{margin:0;padding:0 0 24px;border-bottom:1px solid var(--rule);font:400 13px/1.6 var(--mono);color:var(--ink-2)}
+.scale span{font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-size:11px;margin-right:10px}
+.stat{padding:0 20px;border-left:1px solid var(--rule)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;white-space:nowrap;font:700 clamp(26px,7.5vw,34px)/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:13px;color:var(--ink-2);margin-top:8px;line-height:1.4}
+@media (max-width:760px){
+  .stats{grid-template-columns:repeat(2,1fr);row-gap:24px}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+}
+
+/* ---------- sections ---------- */
+section{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:44px 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+@media (max-width:760px){section{grid-template-columns:1fr;gap:18px;padding:34px 0}}
+h2{font:700 22px/1.15 var(--display);letter-spacing:-.01em;margin:0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start}
+@media (max-width:760px){h2{position:static}}
+h2 small{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+
+/* roles */
+.roles{display:grid;gap:36px}
+.role-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+.role h3{font:700 20px/1.25 var(--display);margin:0}
+.role h3 em{font-style:normal;color:var(--ink-3);font-weight:500}
+.when{font:400 13px/1.4 var(--mono);color:var(--ink-3);white-space:nowrap}
+.role > p{margin:6px 0 0;color:var(--ink-2)}
+ul.bul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+ul.bul li{position:relative;padding-left:20px;max-width:72ch}
+ul.bul li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;height:1.5px;background:var(--accent)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1fr;gap:16px}
+.proj{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.proj.feature{grid-column:1 / -1;border-color:var(--accent)}
+.proj-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.proj-text{display:flex;flex-direction:column;gap:10px;height:100%}
+.has-diagram .pipe{margin:0;background:var(--ground)}
+.has-diagram .pipe .node{fill:var(--surface)}
+.has-diagram .pipe .node.hot{fill:var(--accent-soft)}
+.has-diagram .pipe .node.dlq{fill:var(--signal-soft)}
+@media (max-width:1080px){.proj-body{grid-template-columns:1fr}.has-diagram .pipe{max-width:460px}}
+@media (max-width:480px){.proj{padding:18px 14px 16px}.has-diagram .pipe{padding:14px 8px 12px}.pipe-head,.pipe-foot{padding-inline:6px}}
+.proj-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.proj h3{font:800 24px/1.1 var(--display);letter-spacing:-.015em;margin:0}
+.proj .org{font:400 12px/1.4 var(--mono);color:var(--ink-3)}
+.proj h3 a,.role h3 a,.org a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
+.proj h3 a:hover,.role h3 a:hover,.org a:hover{color:var(--accent)}
+.proj .what{margin:0;color:var(--ink-2);font-size:15px}
+.proj ul.bul{margin-top:4px;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tag{font:500 11.5px/1 var(--mono);padding:6px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+.tag.m{background:var(--signal-soft);color:var(--signal)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 28px}
+@media (max-width:900px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.skills{grid-template-columns:1fr}}
+.skill-group{display:flex;flex-direction:column}
+.skills h4{font:700 16px/1.25 var(--display);color:var(--ink);margin:0 0 10px;padding-bottom:8px;border-bottom:1.5px solid var(--accent)}
+.skills ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px}
+.skills li{padding-bottom:6px;border-bottom:1px dashed var(--rule)}
+.skills li em{font:400 11px/1 var(--mono);font-style:normal;color:var(--ink-3);margin-left:4px}
+.skills .used{margin:10px 0 0;font:400 12px/1.4 var(--mono);color:var(--accent)}
+.skills .used span{color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;margin-right:4px}
+.spoken{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--rule);font-size:15px}
+.spoken span{font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-right:10px}
+
+/* education */
+.edu{display:grid;gap:22px}
+.edu-row{display:grid;grid-template-columns:1fr auto;gap:4px 20px;align-items:baseline}
+.edu-row h3{font:700 18px/1.3 var(--display);margin:0}
+.edu-row p{margin:0;color:var(--ink-2);grid-column:1}
+.grade{font:500 13px/1 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;grid-row:1 / span 2;grid-column:2;text-align:right}
+.grade small{display:block;color:var(--ink-3);font-weight:400;margin-top:6px}
+.placings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:640px){.placings{grid-template-columns:1fr}}
+.placing{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.placing b{font:800 44px/1 var(--display);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums;flex:none;min-width:2.4ch}
+.placing sup{font-size:.4em;letter-spacing:0;margin-left:2px;vertical-align:top;position:relative;top:.3em}
+.placing h3{font:700 17px/1.3 var(--display);margin:2px 0 6px;text-wrap:balance}
+.placing p{margin:0;font-size:14px;color:var(--ink-2)}
+.placing .team{font-family:var(--mono);font-size:13px;color:var(--ink)}
+.icpc-foot{margin:16px 0 0;font-size:14px;color:var(--ink-2)}
+.award{margin-top:6px;padding-top:22px;border-top:1px dashed var(--rule)}
+
+footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font:400 12px/1.5 var(--mono);color:var(--ink-3)}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Backend Software Engineer · .NET · Homs, Syria</span></div>
+      <h1>Mohammad <span>Sarya</span> Tulimat</h1>
+      <p class="lede">I build backend systems that stay fast and correct under load — event-driven pipelines, queue-based processing, distributed integrations, and the modernization of legacy .NET codebases into something teams can keep extending.</p>
+      <div class="contact">
+        <button class="chip" type="button" data-copy="sarya.tulimat@outlook.com" id="copy-email"><small>email</small>sarya.tulimat@outlook.com</button>
+        <button class="chip" type="button" data-copy="+963952713953" id="copy-phone"><small>phone</small>+963 952 713 953</button>
+        <a class="chip" href="https://github.com/Mohammad-Sarya-Tulimat" target="_blank" rel="noopener"><small>github</small>Mohammad-Sarya-Tulimat ↗</a>
+        <a class="chip chip-cta" href="https://drive.google.com/drive/folders/1rtjdeb4dg0DrLAJBgx9SjVcX5XQKwzn6?usp=sharing" target="_blank" rel="noopener"><small>drive</small>Resume &amp; certificates ↗</a>
+      </div>
+    </div>
+
+  </header>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><b>~60%</b><span>faster API responses on the Xbox reservation pipeline</span></div>
+    <div class="stat" role="listitem"><b>60–80%</b><span>shorter execution times for API endpoints and async jobs</span></div>
+    <div class="stat" role="listitem"><b>90%</b><span>better log retention with a UDP → AMQP ingestion service</span></div>
+    <div class="stat" role="listitem"><b>~70%</b><span>more admin efficiency from port-forwarding and access-control modules</span></div>
+  </div>
+  <p class="scale"><span>At scale</span>hundreds of hotel accounts · thousands of reservations a day · thousands of monitored network endpoints · hundreds of VPN-provisioned devices</p>
+
+  <section id="experience">
+    <h2>Experience<small>4+ years · since Aug 2022</small></h2>
+    <div class="roles">
+      <article class="role">
+        <div class="role-head">
+          <h3>Backend Developer <em>· <a href="https://www.tabtabgo.com/" target="_blank" rel="noopener">TabTabGo</a></em></h3>
+          <span class="when">Nov 2023 – Present · Dubai, UAE</span>
+        </div>
+        <ul class="bul">
+          <li>Architected and implemented a modular, extensible backend library reused across multiple services, cutting duplication and speeding up development.</li>
+          <li>Worked with cross-functional teams to design and deploy scalable backend systems, applying solid API design, data modeling and system architecture practices.</li>
+          <li>Contributed to high-impact distributed systems — the Xbox Booking Central pipeline and the <a href="https://www.bolignet.dk/" target="_blank" rel="noopener">Bolignet</a> ISP management system — improving performance and reliability at production scale.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="role-head">
+          <h3>Backend Developer <em>· <a href="https://nimastech.com/" target="_blank" rel="noopener">Nimas Technology</a></em></h3>
+          <span class="when">Aug 2022 – Nov 2023 · Zgharta, Lebanon</span>
+        </div>
+        <ul class="bul">
+          <li>Enhanced and scaled integrations with Cisco Unified Communications Manager (CUCM), improving communication workflows and stability.</li>
+          <li>Reduced execution times of API endpoints and asynchronous jobs by 60–80% through request-handling and workflow optimization.</li>
+          <li>Architected a WireGuard-based VPN across hybrid infrastructure (MikroTik, OpenWRT, cloud) for secure, low-latency remote access.</li>
+          <li>Built a full-stack school management platform with centralized data and real-time monitoring of lab machines.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Selected projects<small>What I built, and what changed</small></h2>
+    <div class="projects">
+
+      <article class="proj feature has-diagram">
+        <div class="proj-top"><h3>Xbox</h3><span class="org"><a href="https://www.tabtabgo.com/" target="_blank" rel="noopener">TabTabGo</a> · Dec 2023 – Present</span></div>
+        <div class="proj-body">
+          <div class="proj-text">
+          <p class="what">A distributed backend connecting multiple hotel reservation platforms to <a href="https://public.securepay.ae/" target="_blank" rel="noopener">SecurePay</a>'s payment processing, built for high volume and low latency.</p>
+          <ul class="bul">
+            <li>Led the architecture and implementation.</li>
+            <li>Multi-tenant integrations with dynamic per-hotel configuration across hundreds of accounts, each with its own workflows and business rules.</li>
+            <li>Event-driven pipeline on MassTransit and AWS SQS with retry policies, dead-letter queues and idempotent processing.</li>
+            <li>Reworked validation, persistence and <a href="https://public.securepay.ae/" target="_blank" rel="noopener">SecurePay</a> sync for ~60% faster API responses while keeping data consistent across systems.</li>
+            <li>Horizontally scalable and easy to extend — new hotel integrations onboard quickly, and peak loads exceed thousands of reservations a day.</li>
+          </ul>
+          <div class="tags"><span class="tag">MassTransit</span><span class="tag">AWS SQS</span><span class="tag">SecurePay</span><span class="tag">Multi-tenant</span><span class="tag">Idempotency</span><span class="tag m">~60% faster</span></div>
+          </div>
+        <figure class="pipe" id="xbox-pipeline" aria-label="Xbox reservation pipeline: hotels, then stage 1 collects reservations into an SQS queue, stage 2 maps to a unified model and validates into a second SQS queue, stage 3 saves to the database and syncs to SecurePay. Failed messages are retried, then moved to a dead-letter queue.">
+          <div class="pipe-head"><span>xbox · reservation pipeline</span><span>masstransit · aws sqs</span></div>
+          <svg viewBox="0 -4 360 346" role="img" aria-hidden="true">
+            <defs>
+              <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="ah" d="M0 0 L8 4 L0 8 Z"/></marker>
+              <marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="ahr" d="M0 0 L8 4 L0 8 Z"/></marker>
+            </defs>
+
+            <!-- main flow -->
+            <path class="edge" d="M160 36 V55" marker-end="url(#ah)"/>
+            <path class="edge" d="M160 94 V109" marker-end="url(#ah)"/>
+            <path class="edge" d="M160 134 V151" marker-end="url(#ah)"/>
+            <path class="edge" d="M160 190 V205" marker-end="url(#ah)"/>
+            <path class="edge" d="M160 230 V247" marker-end="url(#ah)"/>
+            <path class="edge" d="M120 286 V305" marker-end="url(#ah)"/>
+            <path class="edge" d="M225 286 V305" marker-end="url(#ah)"/>
+
+            <!-- retries and dead letters -->
+            <path class="edge retry" d="M80 171 C 48 171, 48 122, 103 122" marker-end="url(#ahr)"/>
+            <path class="edge retry" d="M80 267 C 48 267, 48 218, 103 218" marker-end="url(#ahr)"/>
+            <text class="warn" x="30" y="150" text-anchor="middle">retry</text>
+            <text class="warn" x="30" y="246" text-anchor="middle">retry</text>
+            <path class="edge retry" d="M240 171 H279" marker-end="url(#ahr)"/>
+            <path class="edge retry" d="M240 267 C 300 267, 315 245, 315 200" marker-end="url(#ahr)"/>
+
+            <!-- messages travel behind the nodes -->
+            <circle class="msg" r="4"><animateMotion dur="5s" repeatCount="indefinite" path="M160 36 V286 L225 306"/></circle>
+            <circle class="msg" r="4"><animateMotion dur="5s" begin="1.67s" repeatCount="indefinite" path="M160 36 V286 L225 306"/></circle>
+            <circle class="msg" r="4"><animateMotion dur="5s" begin="3.33s" repeatCount="indefinite" path="M160 36 V286 L225 306"/></circle>
+
+            <!-- hotels -->
+            <rect class="node ext" x="108" y="-2" width="120" height="30" rx="7"/>
+            <rect class="node ext" x="104" y="2" width="120" height="30" rx="7"/>
+            <rect class="node ext" x="100" y="6" width="120" height="30" rx="7"/>
+            <text class="lbl" x="160" y="25" text-anchor="middle">Hotels</text>
+
+            <rect class="node" x="80" y="56" width="160" height="38" rx="8"/>
+            <text class="lbl" x="160" y="72" text-anchor="middle">1 · Collect</text>
+            <text class="sub" x="160" y="86" text-anchor="middle">pull reservations</text>
+
+            <rect class="node hot" x="105" y="110" width="110" height="24" rx="5"/>
+            <text class="q" x="160" y="126" text-anchor="middle">SQS · collected</text>
+
+            <rect class="node" x="80" y="152" width="160" height="38" rx="8"/>
+            <text class="lbl" x="160" y="168" text-anchor="middle">2 · Map &amp; validate</text>
+            <text class="sub" x="160" y="182" text-anchor="middle">unified structure</text>
+
+            <rect class="node hot" x="105" y="206" width="110" height="24" rx="5"/>
+            <text class="q" x="160" y="222" text-anchor="middle">SQS · validated</text>
+
+            <rect class="node" x="80" y="248" width="160" height="38" rx="8"/>
+            <text class="lbl" x="160" y="264" text-anchor="middle">3 · Persist &amp; sync</text>
+            <text class="sub" x="160" y="278" text-anchor="middle">idempotent</text>
+
+            <rect class="node ext" x="80" y="306" width="80" height="30" rx="7"/>
+            <text class="lbl" x="120" y="325" text-anchor="middle">DB</text>
+            <rect class="node ext" x="170" y="306" width="110" height="30" rx="7"/>
+            <text class="lbl" x="225" y="325" text-anchor="middle">SecurePay</text>
+
+            <rect class="node dlq" x="280" y="152" width="72" height="46" rx="8"/>
+            <text class="lbl" x="316" y="172" text-anchor="middle">DLQ</text>
+            <text class="sub" x="316" y="187" text-anchor="middle">max retries</text>
+          </svg>
+          <figcaption class="pipe-foot">Three decoupled stages on MassTransit and AWS SQS move thousands of reservations a day from hotels to <a href="https://public.securepay.ae/" target="_blank" rel="noopener">SecurePay</a>. Retry policies, dead-letter queues and idempotent processing mean no reservation is lost or synced twice.</figcaption>
+        </figure>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top"><h3><a href="https://www.bolignet.dk/" target="_blank" rel="noopener">Bolignet</a></h3><span class="org"><a href="https://www.tabtabgo.com/" target="_blank" rel="noopener">TabTabGo</a> · Nov 2023 – Present</span></div>
+        <p class="what">Modernizing and extending the Bolignet ISP management platform.</p>
+        <ul class="bul">
+          <li>Contributed heavily to migrating the legacy .NET Framework codebase to .NET 8, improving performance and maintainability.</li>
+          <li>Automated service workflows for WiFi devices, VoIP and third-party streaming orders.</li>
+          <li>Integrated real-time network monitoring with SNMP and GenieACS across thousands of endpoints, for proactive fault detection.</li>
+          <li>Designed a campaigns and promotions module with dynamic discount strategies.</li>
+        </ul>
+        <div class="tags"><span class="tag">.NET 8</span><span class="tag">SNMP</span><span class="tag">GenieACS</span><span class="tag">Legacy migration</span></div>
+      </article>
+
+      <article class="proj feature has-diagram">
+        <div class="proj-top"><h3>MR40</h3><span class="org"><a href="https://nimastech.com/" target="_blank" rel="noopener">Nimas Technology</a> · Aug 2022 – Nov 2023</span></div>
+        <div class="proj-body">
+          <div class="proj-text">
+          <p class="what">ASP.NET API that automates VPN configuration and device provisioning.</p>
+          <ul class="bul">
+            <li>Provisioning across hundreds of distributed endpoints.</li>
+            <li>On-prem MikroTik/OpenWRT routers orchestrated with cloud servers, including dynamic VM creation.</li>
+            <li>WireGuard server/client setup logic for encrypted tunnels between nodes.</li>
+            <li>Port forwarding and access-control modules — ~70% more admin efficiency.</li>
+          </ul>
+          <div class="tags"><span class="tag">ASP.NET</span><span class="tag">WireGuard</span><span class="tag">MikroTik</span><span class="tag">OpenWRT</span><span class="tag m">~70% admin efficiency</span></div>
+          </div>
+          <figure class="pipe" id="mr40-diagram" aria-label="MR40 VPN provisioning: the MR40 ASP.NET API provisions a cloud VM running a WireGuard server and pushes configuration to MikroTik and OpenWRT routers at on-prem sites, which connect to the server through encrypted WireGuard tunnels with port forwarding and access control between endpoints.">
+            <div class="pipe-head"><span>mr40 · vpn provisioning</span><span>asp.net · wireguard</span></div>
+            <svg viewBox="0 -4 360 280" role="img" aria-hidden="true">
+              <defs>
+                <marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="ah" d="M0 0 L8 4 L0 8 Z"/></marker>
+                <marker id="ahc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="ahc" d="M0 0 L8 4 L0 8 Z"/></marker>
+              </defs>
+
+              <rect class="grp" x="90" y="78" width="180" height="62" rx="10"/>
+              <text class="cap" x="100" y="92">cloud</text>
+              <rect class="grp" x="8" y="196" width="344" height="76" rx="10"/>
+              <text class="cap" x="18" y="264">on-prem sites · hundreds of routers</text>
+
+              <path class="edge" d="M180 40 V97" marker-end="url(#ah2)"/>
+              <text class="note" x="188" y="62">provision VM</text>
+              <path class="edge cfg" d="M250 20 H342 V209" marker-end="url(#ahc)"/>
+              <text class="note" x="336" y="12" text-anchor="end">push config</text>
+
+              <path class="tun" d="M180 130 L70 210"/>
+              <path class="tun" d="M180 130 L180 210"/>
+              <path class="tun" d="M180 130 L290 210"/>
+              <text class="note" x="112" y="160" text-anchor="end">encrypted</text>
+              <text class="note" x="112" y="173" text-anchor="end">WireGuard tunnels</text>
+              <text class="note" x="240" y="160">port forwarding</text>
+              <text class="note" x="240" y="173">&amp; access control</text>
+
+              <circle class="msg" r="3.5"><animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear" path="M180 130 L70 210"/></circle>
+              <circle class="msg" r="3.5"><animateMotion dur="3s" begin="1s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear" path="M180 130 L180 210"/></circle>
+              <circle class="msg" r="3.5"><animateMotion dur="3s" begin="2s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear" path="M180 130 L290 210"/></circle>
+
+              <rect class="node" x="110" y="0" width="140" height="40" rx="8"/>
+              <text class="lbl" x="180" y="17" text-anchor="middle">MR40 API</text>
+              <text class="sub" x="180" y="31" text-anchor="middle">ASP.NET</text>
+
+              <rect class="node hot" x="110" y="98" width="140" height="32" rx="7"/>
+              <text class="lbl" x="180" y="118" text-anchor="middle">WireGuard server</text>
+
+              <rect class="node ext" x="22" y="210" width="96" height="30" rx="7"/>
+              <text class="lbl" x="70" y="229" text-anchor="middle">MikroTik</text>
+              <rect class="node ext" x="132" y="210" width="96" height="30" rx="7"/>
+              <text class="lbl" x="180" y="229" text-anchor="middle">OpenWRT</text>
+              <rect class="node ext" x="242" y="210" width="96" height="30" rx="7"/>
+              <text class="lbl" x="290" y="229" text-anchor="middle">MikroTik</text>
+            </svg>
+            <figcaption class="pipe-foot">One API creates cloud VMs, sets up WireGuard on both ends, and manages port forwarding and access rules between sites.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top"><h3>Nimas CUCM Integration</h3><span class="org"><a href="https://nimastech.com/" target="_blank" rel="noopener">Nimas Technology</a> · Aug 2022 – Nov 2023</span></div>
+        <p class="what">Billing, analytics and monitoring on top of Cisco Unified Communications Manager.</p>
+        <ul class="bul">
+          <li>Migrated the legacy .NET Framework system to .NET 6.</li>
+          <li>Query-driven dashboard backend: users write custom function expressions that are parsed, executed and rendered as live statistical widgets.</li>
+          <li>High-throughput CDR billing and call analytics over thousands of call, meeting and forwarding records a day, with call relationships drawn as graphs.</li>
+          <li>Log ingestion service capturing CUCM UDP logs, queuing over AMQP and persisting to the database — 90% better retention, less packet loss.</li>
+          <li>Query and process tuning for lower latency under load.</li>
+          <li>Extended integration capabilities to support future monitoring, reporting and call-center automation.</li>
+        </ul>
+        <div class="tags"><span class="tag">Cisco CUCM</span><span class="tag">.NET 6</span><span class="tag">AMQP</span><span class="tag">CDR billing</span><span class="tag">Expression parsing</span><span class="tag m">90% retention</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills<small>Grouped by where I use them</small></h2>
+    <div class="skills-wrap">
+    <div class="skills">
+      <div class="skill-group">
+        <h4>Languages &amp; frameworks</h4>
+        <ul><li>C# · ASP.NET Core</li><li>.NET Framework → .NET 6 / 8</li><li>.NET WinForms</li><li>Liquid templates</li><li>Angular <em>basics</em></li></ul>
+        <p class="used"><span>used in</span> TabTabGo · Nimas</p>
+      </div>
+      <div class="skill-group">
+        <h4>Architecture &amp; design</h4>
+        <ul><li>Event-driven architecture</li><li>Microservices &amp; monoliths</li><li>RESTful API design</li><li>SOLID &amp; design patterns</li><li>Multi-tenant integrations</li></ul>
+        <p class="used"><span>used in</span> Xbox · Bolignet · MR40</p>
+      </div>
+      <div class="skill-group">
+        <h4>Messaging &amp; reliability</h4>
+        <ul><li>MassTransit</li><li>AWS SQS</li><li>AMQP</li><li>Retry policies &amp; dead-letter queues</li><li>Idempotent processing</li></ul>
+        <p class="used"><span>used in</span> Xbox · CUCM</p>
+      </div>
+      <div class="skill-group">
+        <h4>Networking &amp; infrastructure</h4>
+        <ul><li>WireGuard VPN</li><li>MikroTik · OpenWRT</li><li>SNMP · GenieACS</li><li>Cisco CUCM</li><li>Ansible</li></ul>
+        <p class="used"><span>used in</span> MR40 · Bolignet · CUCM</p>
+      </div>
+      <div class="skill-group">
+        <h4>Performance &amp; data</h4>
+        <ul><li>Query &amp; database optimization</li><li>API and async-job tuning</li><li>Expression parsing for live dashboards</li><li>Real-time monitoring</li><li>CDR billing &amp; call analytics</li></ul>
+        <p class="used"><span>used in</span> Xbox · CUCM · Bolignet</p>
+      </div>
+      <div class="skill-group">
+        <h4>Ways of working</h4>
+        <ul><li>CI/CD</li><li>Agile</li><li>Legacy modernization</li><li>Cross-functional teams</li><li>Problem solving · ICPC</li></ul>
+        <p class="used"><span>used in</span> TabTabGo · Nimas</p>
+      </div>
+    </div>
+    <p class="spoken"><span>Spoken languages</span> Arabic · English</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education<small>Homs University</small></h2>
+    <div class="edu">
+      <div class="edu-row">
+        <h3>Bachelor's degree, Software Engineering</h3>
+        <span class="grade">82.34%<small>2022</small></span>
+        <p>Faculty of Information Technology Engineering · Homs University, Syria</p>
+      </div>
+      <div class="edu-row">
+        <h3>Technical Diploma, Software Engineering</h3>
+        <span class="grade">88.07%<small>2018</small></span>
+        <p>Homs University, Syria</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="icpc">
+    <h2>Competitive programming<small>ICPC</small></h2>
+    <div class="icpc">
+      <div class="placings">
+        <div class="placing">
+          <b>10<sup>th</sup></b>
+          <div>
+            <h3>2019 Al-Baath University Contest</h3>
+            <p>Team <span class="team">Deep Matrix</span> · 2019–2020 season</p>
+          </div>
+        </div>
+        <div class="placing">
+          <b>12<sup>th</sup></b>
+          <div>
+            <h3>2021 ICPC Al-Baath and Hama University Contest</h3>
+            <p>Team <span class="team">put it in the sack</span> · 2021–2022 season</p>
+          </div>
+        </div>
+      </div>
+      <p class="icpc-foot">Competed in ICPC contests from 2017 to 2022. <a href="https://icpc.global/ICPCID/HB69YM22MHDI" target="_blank" rel="noopener">Full ICPC record ↗</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Mohammad Sarya Tulimat · Backend Software Engineer</span><a href="https://github.com/Mohammad-Sarya-Tulimat" target="_blank" rel="noopener">github.com/Mohammad-Sarya-Tulimat</a>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var value = btn.getAttribute('data-copy');
+    var done = function () {
+      btn.classList.add('copied');
+      var small = btn.querySelector('small'), prev = small.textContent;
+      small.textContent = 'copied';
+      setTimeout(function () { btn.classList.remove('copied'); small.textContent = prev; }, 1600);
+    };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(btn);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    };
+    try {
+      navigator.clipboard.writeText(value).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+
+</body></html>
