@@ -160,7 +160,8 @@ ul.bul li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;heig
 .edu-row p{margin:0;color:var(--ink-2);grid-column:1}
 .grade{font:500 13px/1 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;grid-row:1 / span 2;grid-column:2;text-align:right}
 .grade small{display:block;color:var(--ink-3);font-weight:400;margin-top:6px}
-.placings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.placings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:1080px){.placings{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.placings{grid-template-columns:1fr}}
 .placing{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
 .placing b{font:800 44px/1 var(--display);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums;flex:none;min-width:2.4ch}
@@ -445,17 +446,17 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
   </section>
 
   <section id="education">
-    <h2>Education<small>Homs University</small></h2>
+    <h2>Education<small><a href="https://homs-univ.edu.sy/" target="_blank" rel="noopener">Homs University</a></small></h2>
     <div class="edu">
       <div class="edu-row">
         <h3>Bachelor's degree, Software Engineering</h3>
         <span class="grade">82.34%<small>2022</small></span>
-        <p>Faculty of Information Technology Engineering · Homs University, Syria</p>
+        <p>Faculty of Information Technology Engineering · <a href="https://homs-univ.edu.sy/" target="_blank" rel="noopener">Homs University</a>, Syria</p>
       </div>
       <div class="edu-row">
         <h3>Technical Diploma, Software Engineering</h3>
         <span class="grade">88.07%<small>2018</small></span>
-        <p>Homs University, Syria</p>
+        <p><a href="https://homs-univ.edu.sy/" target="_blank" rel="noopener">Homs University</a>, Syria</p>
       </div>
     </div>
   </section>
@@ -469,6 +470,13 @@ footer{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule);display
           <div>
             <h3>2019 Al-Baath University Contest</h3>
             <p>Team <span class="team">Deep Matrix</span> · 2019–2020 season</p>
+          </div>
+        </div>
+        <div class="placing">
+          <b>60<sup>th</sup></b>
+          <div>
+            <h3>2019 Syrian Collegiate Programming Contest</h3>
+            <p>Team <span class="team">Deep Matrix</span> · 2019–2020 season · Honorable Mention</p>
           </div>
         </div>
         <div class="placing">
